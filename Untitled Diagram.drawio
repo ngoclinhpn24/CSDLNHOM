@@ -1,1 +1,112 @@
-<mxfile host="www.draw.io" modified="2020-03-09T10:23:41.205Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" etag="J9AyUsX4ZdEOMg4a_0B7" version="12.8.1" type="github"><diagram id="McJpeW2NFm06ZBHEweL8" name="Page-1">7VlZc9owEP41fkxGPjGPHGnykEzp0JkeLx1hK7YSYTFCXP31lWzJJyYJDZhmygNoV7s6vv20XgvDHs23twwu4gcaImJYINwa9tiwLBPYvviRml2mcX2QKSKGQ2VUKKb4N9KeSrvCIVpWDDmlhONFVRnQJEEBr+ggY3RTNXukpDrrAkaooZgGkDS133DI40zrW71Cf4dwFOuZTa+f9cyhNlY7WcYwpJuSyr4x7BGjlGet+XaEiARP45L5fWrpzRfGUMJf4/Dws8/49IkEv/hyPf48scDv2ZUeZg3JSu1YrZbvNAQoFIgokTIe04gmkNwU2iGjqyREch4gpMLmntKFUJpC+YQ436nwwhWnQhXzOVG9Ygts9135p8IPKVy7Whxvy53jnZKytcoFtoKiSQNZhPgBJEwrj4kgM6JzJCYSjgwRyPG6OgFUrIpyu9x1QrGY2gLqBDia74r/lgOqQyzpigVIeZXDVxvItV8YKNthYyDRKO2nUKXseANT9hHFIwLR4Uw0Itm4xcaNaQwHxsBOImmLjZFtDAaJthQT58YNmonzsZDN1ZwMAk6ZsFkjxrE4i/dwhsiELjHHNBEmM8o5nQsDIjuGMHiOUgqOKJF+YjT7Mf2UxhgQHElfLilZ5h5dcYITNMoTSEEs6Yu2h6nVZIyOvFULmE5pmyKP6JjGpRTigXaOVYL61gh6zQiOHKMP5LefRew5Ddg4jyzLo1W3TGId6/GimTEIEflZZoZNjDmaLmAgezbiEVHF/h1grp0v22qibFp7YPZPBbPfgPlrDOWCUwzNFLah0XexzEqxBHzopJBynFwSkhboGkl9YEpQflkVKUb0kBS+cdpSuA4XcnlK8sdBp5D2qpD6nSPazOKtiM7SXABwHU7AGc34qrSDYSpeZgQ88HIInD0hMMHJYmC15GGsIbPnsmCGIsXWoS89UbvE1Ly4TGG3PtsEXGaKZJRhZ/4joHb/IDP3FAwNhJJwIN+yhBQQuFzioKWwz4WzF/b+fthLsLp7UNW6vy3/a+nn6PLf9qoDmf0zl/+9D0EG76LIUD+6ryaD61yLwfKPWaWG6197znnZ0Sx6j2dHh3cAdqf0qBfgR9PDO0gP7/z06H+I5GGCTulRzx71CvXV9OgdpEfv7PTQbHgXelyBa2DXOdJzXmBJKk0Qw2IviJ2AOi3FX0eZ5Wjq+Aep45+fOnsK//q15F1btf//UtLyes23jLNeSlpOM4Af71bS9bp+mbPcV+TY7gDyTng1JsTiX7Ys8RT/Vdo3fwA=</diagram></mxfile>
+<mxfile host="www.draw.io" modified="2020-03-09T10:30:44.268Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" etag="B675FqyQHLJ5U72Aq5-9" version="12.8.1" type="github">
+  <diagram id="McJpeW2NFm06ZBHEweL8" name="Page-1">
+    <mxGraphModel dx="1038" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="MZ9rtSjlc_tsvDOP20zb-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="240" as="sourcePoint" />
+            <mxPoint x="530" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-1" value="&lt;b&gt;Giảng viên&lt;/b&gt;" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="420" y="210" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-6" value="Đăng kí&lt;br&gt;Đăng nhập" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-8" value="Thay đổi thông tin" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-10" value="Quản lý lớp học" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-11" value="Quản lý bài học trong từng lớp học" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="600" y="80" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-12" value="Điểm danh học viên" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="610" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-13" value="Đánh giá học viên" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="610" y="320" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-16" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="MZ9rtSjlc_tsvDOP20zb-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="240" as="sourcePoint" />
+            <mxPoint x="360" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-17" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="MZ9rtSjlc_tsvDOP20zb-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="280" as="sourcePoint" />
+            <mxPoint x="354.4000000000001" y="158.64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-18" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="MZ9rtSjlc_tsvDOP20zb-13" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="280" as="sourcePoint" />
+            <mxPoint x="364.4000000000001" y="168.64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-19" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="MZ9rtSjlc_tsvDOP20zb-10" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="200" as="sourcePoint" />
+            <mxPoint x="374.4000000000001" y="178.64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-22" value="" style="endArrow=classic;html=1;entryX=-0.031;entryY=0.574;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="MZ9rtSjlc_tsvDOP20zb-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="200" as="sourcePoint" />
+            <mxPoint x="384.4000000000001" y="188.64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-23" value="&lt;b&gt;Học viên&lt;/b&gt;" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="420" y="670" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-24" value="Đăng kí&lt;br&gt;Đăng nhập" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="560" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MZ9rtSjlc_tsvDOP20zb-25" value="Thay đổi thông tin" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="680" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-1" value="Tham gia lớp học" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="560" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-2" value="Xem đánh giá từ giảng viên" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="670" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-3" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="MZ9rtSjlc_tsvDOP20zb-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="720" as="sourcePoint" />
+            <mxPoint x="440" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-4" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="MZ9rtSjlc_tsvDOP20zb-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="680" as="sourcePoint" />
+            <mxPoint x="200" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-5" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="ep0VvD4VMj1_Ql4N0Oof-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="720" as="sourcePoint" />
+            <mxPoint x="220" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-6" value="" style="endArrow=classic;html=1;" edge="1" parent="1" target="ep0VvD4VMj1_Ql4N0Oof-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="680" as="sourcePoint" />
+            <mxPoint x="230" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-7" value="&lt;b&gt;&lt;i&gt;Biểu đồ ca sử dụng dưới góc nhìn giảng viên&lt;/i&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="410" width="290" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ep0VvD4VMj1_Ql4N0Oof-8" value="&lt;b&gt;&lt;i&gt;Biểu đồ ca sử dụng dưới góc nhìn học viên&lt;/i&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="830" width="290" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
