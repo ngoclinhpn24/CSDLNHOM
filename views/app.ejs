@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <!-- Font awesome 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            background: #E0E0E0;
+        }
+        body * {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .title {
+            font-size: 36px;
+        }
+
+        .survey-container {
+            width: 300px;
+            height: 200px;
+            box-sizing: border-box;
+            background: white;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .survey-container .survey-title h4 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <%- include ('layouts/unauthenticated_nav') %> 
+
+    <%- include ('layouts/content') %> 
+
+    <%- include ('layouts/footer') %> 
+
+</body>
+
+</html>
