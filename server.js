@@ -1,28 +1,26 @@
 const express = require('express');
 const app = express();
 
-// include models
-const User = require('./models/User');
-
 // set template engine: ejs
 app.set('view engine', 'ejs');
 
+// use public path
+app.use('/public',express.static('public'));
 
-// register routes
+// use urlencode
+app.use(express.urlencoded({
+    extended: true
+}));
 
+// use json
+app.use(express.json());
+
+// register routers
 app.get('/', function(req, res){
-    res.render('app.ejs');
-})
-
-app.get('/test_model', async function(req, res){
-
-    let user = await User.find(11);
-    await user.delete();
-    
-
-    res.send('ok');
+    res.render('app');
 });
 
+app.use('/user', require('./routes/AuthRouters'));
 
 app.listen(3000, function(){
     console.log('server started at port 3000');
