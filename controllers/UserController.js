@@ -1,12 +1,16 @@
 const Controller = require('./Controller');
 
 class UserController extends Controller {
-    static signIn(req, res) {
 
+    static auth(req, res){
+        res.send('this is sign in / sign up form');
+    }
+
+    static signIn(req, res) {
+        res.send('Sign In');
     }
 
     static signUp(req, res) {
-
     }
 
     static showProfile(req, res) {
