@@ -1,0 +1,16 @@
+.survey-container {
+    width: 300px;
+    height: 200px;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.survey-container .survey-title h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

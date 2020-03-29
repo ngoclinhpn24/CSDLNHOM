@@ -1,0 +1,13 @@
+.sign-in-container, .sign-up-container{
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 500px;
+}
+
+.line-separator {
+    width: 5px;
+    background: #6FA77B;
+    border-radius: 10px;
+}
