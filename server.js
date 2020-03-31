@@ -17,7 +17,7 @@ app.use(express.json());
 
 // register routers
 app.get('/', function(req, res){
-    res.render('app');
+    res.render('tmp');
 });
 
 app.use('/user', require('./routes/AuthRouters'));

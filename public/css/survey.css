@@ -14,3 +14,18 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.survey-editor > * {
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px 50px;
+    margin-bottom: 30px
+}
+
+.question {
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin-bottom: 15px;
+}
