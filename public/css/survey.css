@@ -1,3 +1,4 @@
+/* View surveys */
 .survey-container {
     width: 300px;
     height: 200px;
@@ -15,12 +16,14 @@
     white-space: nowrap;
 }
 
+/* Survey editor */
+
 .survey-editor > * {
     background: white;
     border: 1px solid #cccccc;
     border-radius: 5px;
     padding: 20px 50px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .question {
@@ -28,4 +31,24 @@
     border: 1px solid #cccccc;
     padding: 20px;
     margin-bottom: 15px;
+}
+
+/* Survey answer sheet */
+
+.survey-answer-sheet > * {
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+}
+
+/* Survey result */
+
+.survey-result > * {
+    background: white;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 20px 50px;
+    margin-bottom: 30px;
 }
