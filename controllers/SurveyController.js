@@ -1,8 +1,18 @@
 const Controller = require('./Controller');
 
-class SurveyController extends Controller {
-    static viewSurveys(req, res) {
+const Survey = require('../models/Survey');
 
+class SurveyController extends Controller {
+    static async viewSurveys(req, res) {
+        // get data from database
+        let surveys = await Survey.selectWhere('all');
+
+        for(let survey of surveys){
+            survey.owner = await survey.getOwner();
+        }
+
+        console.log(surveys);
+        res.render('tmp', {surveys: surveys});
     }
 
     static viewOwnSurveys(req, res) {
