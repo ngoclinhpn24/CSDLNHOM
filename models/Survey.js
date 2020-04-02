@@ -1,5 +1,7 @@
 const Model = require('./Model');
 
+const User = require('./User');
+
 class Survey extends Model{
     static table = 'surveys';
 
@@ -15,7 +17,8 @@ class Survey extends Model{
     }
 
     async getOwner(){
-
+        let owner = await User.find(this.ownerId);
+        return owner;
     }
 
     async getResult(){
