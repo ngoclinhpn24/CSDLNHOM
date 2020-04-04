@@ -17,9 +17,15 @@ app.use(express.urlencoded({
 // use json
 app.use(express.json());
 
+// register middlewares
+app.use(require('./middlewares/AuthMiddleware').auth);
+
 // register routers
+
+app.use('/', require('./routes/HomeRouters'));
 app.use('/user', require('./routes/AuthRouters'));
 app.use('/survey', require('./routes/SurveyRouters'));
+
 
 app.listen(3000, function(){
     console.log('server started at port 3000');
