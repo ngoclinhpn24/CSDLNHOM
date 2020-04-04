@@ -3,9 +3,10 @@ const User = require('../models/User');
 
 class UserController extends Controller {
 
-    static auth(req, res){
-        res.send('this is sign in / sign up form');
+    static account(req, res){
+        res.render('user/auth');
     }
+
 
     static async signIn(req, res) {
         // get data from request
@@ -13,21 +14,39 @@ class UserController extends Controller {
 
         // query database
         let result = await User.selectWhere(`email = '${data.email}' AND password = '${data.password}'`);
-        
-        res.json(result);
+        let status = {
+            code: 1,
+            message: ''
+        };
+        if(result.length > 0){
+            let currentUser = result[0];
+            res.cookie('userId', currentUser.id);
+            res.cookie('email', currentUser.email);
+        } else {
+            status.code = 0;
+            status.message = 'Your email or password is incorrect.'
+        }
+
+        res.json(status);
     }
 
     static async signUp(req, res) {
         // get data from request
         let data = req.body;
-
+        // console.log(data);
+        
         // check exist email
         let existEmail = await User.selectWhere(`email = '${data.email}'`);
 
+        let status = {
+            code: 1,
+            message: 'You have just created your account. Sign in for now!'
+        };
+        
         if(existEmail.length > 0){
-            res.send('Email has been used by another account');
+            status.code = 0;
+            status.message = 'The email has been used by another account';
         } else {
-
             // create user
             await User.create({
                 name: data.name,
@@ -35,10 +54,9 @@ class UserController extends Controller {
                 password: data.password,
                 authorization: 1
             });
-
-            res.send('Sign Up Successfully');
         }
 
+        res.json(status);
     }
 
     static showProfile(req, res) {
@@ -49,10 +67,11 @@ class UserController extends Controller {
 
     }
 
-    static checkAuth(req, res) {
-
+    static signOut(req, res){
+        res.clearCookie('userId');
+        res.clearCookie('email');
+        res.redirect('/');
     }
-
 
 }
 

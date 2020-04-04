@@ -1,69 +1,72 @@
-async function signIn(event) {
-    event.preventDefault();
+class AuthHandler {
+    static async signIn(event) {
+        event.preventDefault();
+        let rules = {
+            email: 'required|email',
+            password: 'required'
+        };
 
-    let signInData = $('.form-sign-in').serializeArray();
+        let messages = {
+            'email.required': 'Input your email',
+            'password.required': 'Input your password'
+        };
+        let validator = Validator.validateForm('.form-sign-in', rules, messages);
 
-    let message = '';
-    for (let field of signInData) {
-        if (!field.value.trim()) {
-            message += `${field.name} is invalid! \n`.toUpperCase();
-        }
-    }
+        if(validator.isPassed()){
+            let result = await $.ajax({
+                url: 'user/sign_in',
+                method: 'POST',
+                data: validator.data
+            });
 
-    if (message) {
-        alert(message);
-    } else {
-
-        // send request & receive response
-        let result = await $.ajax({
-            url: 'user/sign_in',
-            method: 'POST',
-            data: signInData
-        });
-
-        // check result
-        if(result.length > 0){
-            alert('Sign In Successfully');
+            if(result.code == 1){
+                window.location = '/';
+            } else {
+                $('.form-sign-in').find('.sign-in-error').html(result.message);
+            }
         } else {
-            alert('Your email or password is incorrect');
+            validator.showErrors();
+        }
+    
+    }
+    
+    static async signUp(event) {
+        event.preventDefault();
+    
+        let rules = {
+            'name': 'required',
+            'email': 'required|email',
+            'password': 'required|minLength:5',
+            'confirmPassword': 'required|same:password'
+        };
+
+        let messages = {
+            'name.required': 'Input your name',
+            'email.required': 'Input your email',
+            'email.email': 'Email format is incorrect',
+            'password.required': 'Input your password',
+            'password.minLength:5': 'Your password must be at least 5 characters',
+            'confirmPassword.required': 'Input password confirmation',
+            'confirmPassword.same:password': 'Your password confirmation is not match'
+        };
+
+        let validator = Validator.validateForm('.form-sign-up', rules, messages);
+        if(validator.isPassed()){
+            let result = await $.ajax({
+                url: 'user/sign_up',
+                method: 'POST',
+                data: validator.data
+            });
+
+            if(result.code == 1){
+                $('.form-sign-up').find('.sign-up-success').html(result.message);
+            } else {
+                $('.form-sign-up').find('.sign-up-error').html(result.message);
+            }
+        } else {
+            validator.showErrors();
         }
     }
 
-}
-
-async function signUp(event) {
-    event.preventDefault();
-
-    let signUpData = $('.form-sign-up').serializeArray();
-
-    let message = '';
-    // check is field empty
-    for (let field of signUpData) {
-        if (!field.value.trim()) {
-            message += `${field.name} is invalid! \n`.toUpperCase();
-        }
-    }
-
-    // check password & confirmPassword
-    if(signUpData[2].value != signUpData[3].value){
-        message = 'PASSWORD CONFIRMATION IS NOT MATCH!';
-    }
-
-    if (message) {
-        alert(message);
-    } else {
-        
-        // send request & receive response
-        let result = await $.ajax({
-            url: 'user/sign_up',
-            method: 'POST',
-            data: signUpData
-        });
-
-        // check result
-        alert(result);
-
-    }
-
-}
+}    
 

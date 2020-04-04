@@ -12,7 +12,7 @@ class SurveyController extends Controller {
         }
 
         console.log(surveys);
-        res.render('tmp', {surveys: surveys});
+        res.render('survey/index', {surveys: surveys});
     }
 
     static viewOwnSurveys(req, res) {

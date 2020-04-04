@@ -13,3 +13,13 @@ body * {
 .title {
     font-size: 36px;
 }
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    margin: 0px 5px;
+}
+
+#main-content{
+    min-height: calc(100vh - 80px - 80px - 20px);
+}
