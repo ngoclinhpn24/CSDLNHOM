@@ -11,8 +11,7 @@ class SurveyController extends Controller {
             survey.owner = await survey.getOwner();
         }
 
-        console.log(surveys);
-        res.render('survey/index', {surveys: surveys});
+        res.render('survey/index', {surveys: surveys, currentUser: req.currentUser});
     }
 
     static viewOwnSurveys(req, res) {
