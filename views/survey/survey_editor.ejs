@@ -2,18 +2,20 @@
 
     <div class="survey-info">
         <h3>Survey Info</h3>
-        <form class="form" action="">
+        <form class="form form-edit-survey" onsubmit="SurveyEditorHandler.saveSurvey(event)">
 
             <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <label for="title">Title:</label>
                         <input type="text" name="title" id="title" class="form-control form-control-sm">
+                        <small class="title-error text-danger"></small>
                     </div>
 
                     <div class="form-group">
                         <label for="hash-tag">Hash Tag:</label>
                         <input type="text" name="hashTag" id="hash-tag" class="form-control form-control-sm">
+                        <small class="hashTag-error text-danger"></small>
                     </div>
 
                 </div>
@@ -23,6 +25,7 @@
                         <label for="description">Description:</label>
                         <textarea name="description" id="description" cols="30" rows="5"
                             class="form-control form-control-sm"></textarea>
+                        <small class="description-error text-danger"></small>
                     </div>
 
                 </div>
@@ -59,4 +62,5 @@
 
 </div>
 
+<script src="/public/js/supporters/Validator.js"></script>
 <script src="/public/js/handlers/SurveyEditorHandler.js"></script>

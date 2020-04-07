@@ -2,7 +2,7 @@ class AuthHandler {
     static async signIn(event) {
         event.preventDefault();
         let rules = {
-            email: 'required|email',
+            email: 'required',
             password: 'required'
         };
 
@@ -35,7 +35,7 @@ class AuthHandler {
     
         let rules = {
             'name': 'required',
-            'email': 'required|email',
+            'email': 'required',
             'password': 'required|minLength:5',
             'confirmPassword': 'required|same:password'
         };

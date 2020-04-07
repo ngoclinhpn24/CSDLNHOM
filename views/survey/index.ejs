@@ -1,7 +1,7 @@
 <div class="row options" style="height: 40px;">
     <div class="col bg-light d-flex align-items-center rounded-left" style="border: 1px solid #cccccc;">
         <% if (currentUser) { %>
-            <button class="btn btn-success btn-sm" onclick="load()"><i class="fa fa-plus" aria-hidden="true"></i> Add Survey</button>
+            <button class="btn btn-success btn-sm" onclick="load('/survey/editor')"><i class="fa fa-plus" aria-hidden="true"></i> Add Survey</button>
         <% } else { %>
             <i>Sign In to Add Survey</i>
         <% } %>
