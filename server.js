@@ -22,9 +22,11 @@ app.use(require('./middlewares/AuthMiddleware').auth);
 
 // register routers
 
-app.use('/', require('./routes/HomeRouters'));
-app.use('/user', require('./routes/AuthRouters'));
-app.use('/survey', require('./routes/SurveyRouters'));
+app.use('/', require('./routes/HomeRouter'));
+app.use('/user', require('./routes/AuthRouter'));
+app.use('/survey', require('./routes/SurveyRouter'));
+app.use('/question', require('./routes/QuestionRouter'));
+app.use('/question', require('./routes/ReportRouter'));
 
 
 app.listen(3000, function(){
