@@ -16,7 +16,8 @@ class Validator {
                 let isPassed = true;
 
                 if (requirement == 'required') {
-                    if (fieldValue.length == 0) isPassed = false;
+                    if (Array.isArray(fieldValue) && fieldValue.length == 0) isPassed = false;
+                    if (typeof fieldValue == 'string' && fieldValue.trim() == '') isPassed = false;
 
                 } else if (requirement == 'email') {
                     isPassed = /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/.test(fieldValue);
@@ -61,7 +62,7 @@ class Validator {
         return validator;
     }
 
-    static validateForm(formSelector, rules, messages) {
+    static validateForm(formSelector, rules = {}, messages = {}) {
 
         // get form data
         let form = $(formSelector).get(0);
