@@ -1,5 +1,4 @@
 async function load(url, viewArea = '#main-content', mode = 'cover'){
-
     let loadingAnimation = $(`<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>`);
     $(viewArea).append(loadingAnimation);
 
