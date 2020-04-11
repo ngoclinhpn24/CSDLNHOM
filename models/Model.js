@@ -92,7 +92,10 @@ class Model {
         if(this.id){
             // update
             // console.log('update');
-            let changes = Object.keys(data).map(function(key){
+            let changes = Object.keys(data).filter(function(key){
+                if(key == primaryKey || key == 'dateModified') return false;
+                return true;
+            }).map(function(key){
                 return `${key} = '${data[key]}'`;
             }).join(',');
 

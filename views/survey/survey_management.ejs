@@ -1,0 +1,40 @@
+<div class="row options" style="height: 40px;">
+    <div class="col bg-light d-flex align-items-center rounded-left" style="border: 1px solid #cccccc;">
+        <button class="btn btn-success btn-sm" onclick="load('/survey/editor')"><i class="fa fa-plus" aria-hidden="true"></i> Add Survey</button>
+    </div>
+
+</div>
+
+<div class="surveys-container row mt-3 d-flex justify-content-between flex-wrap">
+
+    <% for( let survey of surveys ) { %>
+        
+        <div class="survey-container">
+            <div class="survey-options text-right">
+                <a href="#" class="text-dark" onclick="load('/survey/editor/<%= survey.id %>'); return false;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" class="text-dark" onclick="load('/survey/result/<%= survey.id %>'); return false;"><i class="fa fa-pie-chart"></i> Result</a>
+            </div>
+    
+            <div class="survey-title text-primary">
+                <h4><a href="#" onclick="load('/survey/answer/<%= survey.id %>'); return false;"><%= survey.title %> </a></h4>
+            </div>
+    
+            <div class="survey-hash-tag text-success">
+                <i class="fa fa-slack"></i> <%= survey.hashTag %> 
+            </div>
+    
+            <div class="survey-vote-info text-danger">
+                <i class="fa fa-star"></i> <%= survey.voteNumber %>  votes
+            </div>
+    
+            <div class="survey-date-modified text-secondary">
+                <i class="fa fa-calendar"></i> <%= new Date(survey.dateModified).toLocaleString() %> 
+            </div>
+    
+        </div>
+        
+    <% } %>
+
+</div>
+

@@ -26,13 +26,18 @@
 
 <body>
 
-    <%- include ('layouts/unauthenticated_nav') %> 
+    <% if (name) { %>
+        <%- include ('layouts/authenticated_nav') %> 
+    <% } else {%>
+        <%- include ('layouts/unauthenticated_nav') %> 
+    <% } %>
 
     <%- include ('layouts/content') %> 
 
     <%- include ('layouts/footer') %> 
 
-    <script src="/public//js/main.js"></script>
+    <script src="/public/js/main.js"></script>
+
 </body>
 
 </html>

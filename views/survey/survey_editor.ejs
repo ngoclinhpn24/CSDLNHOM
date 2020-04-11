@@ -2,18 +2,20 @@
 
     <div class="survey-info">
         <h3>Survey Info</h3>
-        <form class="form" action="">
+        <form class="form form-edit-survey" onsubmit="SurveyEditorHandler.saveSurvey(event)">
 
             <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <label for="title">Title:</label>
                         <input type="text" name="title" id="title" class="form-control form-control-sm">
+                        <small class="title-error text-danger"></small>
                     </div>
 
                     <div class="form-group">
                         <label for="hash-tag">Hash Tag:</label>
                         <input type="text" name="hashTag" id="hash-tag" class="form-control form-control-sm">
+                        <small class="hashTag-error text-danger"></small>
                     </div>
 
                 </div>
@@ -23,6 +25,7 @@
                         <label for="description">Description:</label>
                         <textarea name="description" id="description" cols="30" rows="5"
                             class="form-control form-control-sm"></textarea>
+                        <small class="description-error text-danger"></small>
                     </div>
 
                 </div>
@@ -40,17 +43,17 @@
 
         </div>
 
-        <button class="btn btn-success" onclick="addQuestion('Single-Choice Question');">
+        <button class="btn btn-success" onclick="SurveyEditorHandler.addQuestion('Single-Choice Question');">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Add Single-Choice Question
         </button>
 
-        <button class="btn btn-danger" onclick="addQuestion('Multiple-Choice Question')">
+        <button class="btn btn-danger" onclick="SurveyEditorHandler.addQuestion('Multiple-Choice Question')">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Add Multiple-Choice Question
         </button>
 
-        <button class="btn btn-info" onclick="addQuestion('Text Question')">
+        <button class="btn btn-info" onclick="SurveyEditorHandler.addQuestion('Text Question')">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Add Text Question
         </button>
@@ -59,77 +62,5 @@
 
 </div>
 
-
-<script type="text/javascript">
-        
-    function addQuestion(questionType){
-        
-        let html = '';
-        if(questionType == 'Single-Choice Question' || questionType == 'Multiple-Choice Question'){
-            html = `
-            <div class="question">
-                <div class="question-buttons float-right">
-                    <button class="btn btn-success btn-sm" onclick="addChoice(this)"><i class="fa fa-plus" aria-hidden="true"></i> Add choice</button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteQuestion(this);"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-                <div class="form-group">
-                    <label>${questionType}:</label>
-                    <textarea cols="30" rows="5" class="content form-control"></textarea>
-                </div>
-                <div class="question-choices">
-                    <label>Choices: </label>
-
-                    <div class="input-group mb-3">
-                        <input type="text" class="choice form-control" placeholder="Input choice content">
-                        <div class="input-group-append">
-                            <button class="btn btn-danger" onclick="deleteChoice(this)"><i class="fa fa-times" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            `;
-        } else if(questionType == 'Text Question') {
-            html = `
-            <div class="question">
-
-                <div class="question-buttons float-right">
-                    <button class="btn btn-danger btn-sm" onclick="deleteQuestion(this);"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </div>
-
-                <div class="form-group">
-                    <label>Text Question:</label>
-                    <textarea cols="30" rows="5" class="content form-control"></textarea>
-                </div>
-
-            </div>
-            `;
-        }
-
-
-        $(".questions-container").append(html);
-
-    }
-
-    function deleteQuestion(button){
-        // get parent .question of button and remove 
-        $(button).parents(".question").remove();
-    }
-
-    function addChoice(button){
-        let html = `
-        <div class="input-group mb-3">
-            <input type="text" class="choice form-control" placeholder="Input choice content">
-            <div class="input-group-append">
-                <button class="btn btn-danger" onclick="deleteChoice(this)"><i class="fa fa-times" aria-hidden="true"></i></button>
-            </div>
-        </div>
-        `;
-
-        $(button).parents(".question").find('.question-choices').append(html);
-    }
-
-    function deleteChoice(button){
-        $(button).parents(".input-group").remove();
-    }
-</script>
+<script src="/public/js/supporters/Validator.js"></script>
+<script src="/public/js/handlers/SurveyEditorHandler.js"></script>
