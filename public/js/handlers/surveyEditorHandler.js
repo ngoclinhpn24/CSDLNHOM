@@ -1,8 +1,8 @@
 class SurveyEditorHandler {
 
-    static addQuestion(type, data = {}) {
-        // let data = JSON.parse(jsonData);
+    static addQuestion(data = {}) {
         let id = data.id || '';
+        let type = data.type || 'Text Question';
         let content = data.content || '';
 
         let question = null;
@@ -111,21 +111,16 @@ class SurveyEditorHandler {
         if (validator.isPassed()) {
             // lấy ra câu hỏi người dùng chỉnh sửa survey questions
             let questionsData = SurveyEditorHandler.getQuestionsData();
-
             // gửi dữ liệu survey info & survey questions -> server
-            let result = await $.ajax({
-                url: '/survey/editor',
-                method: 'POST',
-                data: {
-                    surveyInfo: validator.data,
-                    surveyQuestions: questionsData
-                }
+            let result = await $.post('/survey/editor', {
+                surveyInfo: validator.data,
+                surveyQuestions: questionsData
             });
 
             if (result.code == 1) {
-                load('/survey');
+                SurveyComponent.showOwnSurveys();
             } else {
-                console.log('error');
+                alert(result.message);
             }
 
         } else {

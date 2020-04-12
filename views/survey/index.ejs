@@ -1,25 +1,4 @@
-<div class="row options" style="height: 40px;">
-    <div class="col bg-light d-flex align-items-center rounded-left" style="border: 1px solid #cccccc;">
-        <% if (currentUser) { %>
-            <button class="btn btn-success btn-sm" onclick="load('/survey/editor')"><i class="fa fa-plus" aria-hidden="true"></i> Add Survey</button>
-        <% } else { %>
-            <i>Sign In to Add Survey</i>
-        <% } %>
-    </div>
-
-    <div class="col-2 bg-info text-white d-flex justify-content-between align-items-center">
-        <i class="fa fa-users"></i>
-        542403 members
-    </div>
-
-    <div class="col-2 bg-danger text-white d-flex justify-content-between align-items-center rounded-right">
-        <i class="fa fa-file-text"></i>
-        54203403 surveys
-    </div>
-
-</div>
-
-<div class="surveys-container row mt-3 d-flex justify-content-between flex-wrap">
+<div class="surveys-container mt-3 d-flex justify-content-between flex-wrap">
 
     <% for( let survey of surveys ) { %>
         

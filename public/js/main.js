@@ -20,4 +20,7 @@ async function load(url, viewArea = '#main-content', mode = 'cover'){
     $(loadingAnimation).remove();
 }
 
+window.onload = function(){
+    SurveyComponent.showSurveys();
+}
 

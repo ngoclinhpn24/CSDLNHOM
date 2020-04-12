@@ -4,7 +4,6 @@ let router = require('express').Router();
 // include controller
 let UserController = require('../controllers/UserController');
 
-router.get('/account', UserController.account);
 router.post('/sign_in', UserController.signIn);
 router.post('/sign_up', UserController.signUp);
 router.get('/profile', UserController.showProfile);

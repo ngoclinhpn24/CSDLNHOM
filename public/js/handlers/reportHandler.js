@@ -3,19 +3,17 @@ class ReportHandler{
         event.preventDefault();
         let rules = {
             'surveyId': 'required',
-            'message': 'required'
+            'content': 'required'
         };
 
         let messages = {
-            'message.required': 'Input your report message.'
+            'content.required': 'Input your report message.'
         };
         let validator = Validator.validateForm('#form-report', rules, messages);
         if(validator.isPassed()){
-            let result = await $.ajax({
-                url: '/report',
-                type: 'POST',
-                data: validator.data
-            });
+            let result = await $.post('/report', validator.data);
+
+            console.log(result);
         } else {
             validator.showErrors();
         }

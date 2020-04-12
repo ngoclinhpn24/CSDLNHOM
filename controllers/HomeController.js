@@ -2,8 +2,8 @@ const Controller = require('./Controller');
 
 class HomeController extends Controller{
     static index(req, res){
-        let name = (req.currentUser) ? req.currentUser.name : '';
-        res.render('app', {name: name});
+        let currentUser = req.currentUser;
+        res.render('app', {currentUser: currentUser});
     }
 
     static about(req, res){

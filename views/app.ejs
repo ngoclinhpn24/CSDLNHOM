@@ -26,7 +26,7 @@
 
 <body>
 
-    <% if (name) { %>
+    <% if (currentUser) { %>
         <%- include ('layouts/authenticated_nav') %> 
     <% } else {%>
         <%- include ('layouts/unauthenticated_nav') %> 
@@ -37,6 +37,22 @@
     <%- include ('layouts/footer') %> 
 
     <script src="/public/js/main.js"></script>
+
+    <!-- Chartjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+
+    <!-- Components -->
+    <script src="/public/js/components/UserComponent.js"></script>
+    <script src="/public/js/components/SurveyComponent.js"></script>
+
+    <!-- Supporters -->
+    <script src="/public/js/supporters/Validator.js"></script>
+
+    <!-- Handlers -->
+    <script src="/public/js/handlers/AuthHandler.js"></script>
+    <script src="/public/js/handlers/SurveyEditorHandler.js"></script>
+    <script src="/public/js/handlers/SurveyAnswerSheetHandler.js"></script>
+    <script src="/public/js/handlers/ReportHandler.js"></script>
 
 </body>
 

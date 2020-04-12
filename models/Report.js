@@ -12,5 +12,6 @@ class Report extends Model{
     async getOwner(){
         
     }
-
 }
+
+module.exports = Report;

@@ -19,19 +19,19 @@
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#" onclick="load('/survey');return false;"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                <a class="nav-link" href="#" onclick="SurveyComponent.showSurveys();return false;"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-trophy" aria-hidden="true"></i> Top Surveys</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-archive" aria-hidden="true"></i> My Surveys</a>
+                <a class="nav-link" href="#" onclick="SurveyComponent.showOwnSurveys();return false;"><i class="fa fa-archive" aria-hidden="true"></i> My Surveys</a>
             </li>
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                     <img src="/public/img/avatar.jpg" style="width: 40px; height: 40px;" alt=""> 
-                    <%= name %>
+                    <%= currentUser.name %>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Update Profile</a>

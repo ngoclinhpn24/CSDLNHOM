@@ -10,18 +10,19 @@ class SurveyController extends Controller {
         let surveys = await Survey.selectWhere('1 ORDER BY dateModified DESC');
 
         for(let survey of surveys){
-            survey.owner = await survey.getOwner();
+            let owner = await survey.getOwner();
+            survey.ownerId = owner.name;
             survey.voteNumber = await survey.getVoteNumber();
         }
 
-        res.render('survey/index', {surveys: surveys, currentUser: req.currentUser});
+        res.json(surveys);
     }
 
     static async viewOwnSurveys(req, res) {
         let currentUser = req.currentUser;
 
         if(!currentUser){
-            res.render('layouts/error');
+            res.json([]);
             return;
         }
 
@@ -29,13 +30,14 @@ class SurveyController extends Controller {
         for(let survey of surveys){
             survey.voteNumber = await survey.getVoteNumber();
         }
-        res.render('survey/survey_management', {surveys: surveys});
+        
+        res.json(surveys);
     }
 
     static async viewSurveyEditor(req, res) {
         let currentUser = req.currentUser;
         if(!currentUser){
-            res.render('layouts/error');
+            res.json({message: 'Error!'});
             return;
         }
 
@@ -50,39 +52,34 @@ class SurveyController extends Controller {
         let surveyId = req.params.id;
 
         if(surveyId){
-            let currentSurvey = await Survey.find(surveyId);
-            surveyInfo.id = currentSurvey.id;
-            surveyInfo.title = currentSurvey.title;
-            surveyInfo.hashTag = currentSurvey.hashTag;
-            surveyInfo.description = currentSurvey.description;
+            surveyInfo = await Survey.find(surveyId);
 
-            let currentQuestions = await currentSurvey.getQuestions();
-            for(let currentQuestion of currentQuestions){
-                let jsonData = JSON.parse(currentQuestion.content);
-                let question = {
-                    id: currentQuestion.id,
+            let questionsRaw = await surveyInfo.getQuestions();
+
+            surveyQuestions = questionsRaw.map(function(questionRaw){
+                let jsonData = JSON.parse(questionRaw.content);
+                return {
+                    id: questionRaw.id,
                     type: jsonData.type,
                     content: jsonData.content,
                     choices: jsonData.choices || null
                 };
-                surveyQuestions.push(question);
-            }
+                
+            });
         }
 
-        res.render('survey/survey_editor', {
-            surveyInfo: surveyInfo,
-            surveyQuestions: surveyQuestions
-        });
+        res.json({survey: surveyInfo, questions: surveyQuestions});
     }
 
     static async handleSurveyEditor(req, res) {
-        let status = {
-            code: 1,
-            message: ''
-        };
-
         let currentUser = req.currentUser;
-        if(!currentUser) return; 
+        if(!currentUser) {
+            res.json({
+                code: 0,
+                message: 'Error!'
+            });
+            return;
+        }; 
 
         let surveyData = req.body;
         
@@ -104,7 +101,6 @@ class SurveyController extends Controller {
             });
             surveyId = newSurvey.id;
         }
-
 
         // save survey questions
         let surveyQuestions = surveyData.surveyQuestions;
@@ -128,7 +124,7 @@ class SurveyController extends Controller {
             }
         }
 
-        res.json(status);
+        res.json({code: 1});
     }
 
     static async answerSurvey(req, res) {
@@ -140,8 +136,11 @@ class SurveyController extends Controller {
 
         let surveyId = req.params.id;
         let currentSurvey = await Survey.find(surveyId);
-        currentSurvey.owner = await currentSurvey.getOwner();
+        let owner = await currentSurvey.getOwner();
+
+        currentSurvey.ownerId = owner.name;
         currentSurvey.voteNumber = await currentSurvey.getVoteNumber();
+
         let questionsRaw = await currentSurvey.getQuestions();
         let questions = [];
         for(let questionRaw of questionsRaw){
@@ -155,8 +154,7 @@ class SurveyController extends Controller {
             questions.push(question);
         }
 
-
-        res.render('survey/survey_answer_sheet', {survey: currentSurvey, questions: questions});
+        res.json({survey: currentSurvey, questions: questions});
     }
 
     static async submitAnswers(req, res) {
@@ -195,15 +193,16 @@ class SurveyController extends Controller {
     static async showResult(req, res){
         let surveyId = req.params.id;
         if(!surveyId){
-            res.render('layouts/error');
+            res.json([]);
             return;
         }
         // get current survey
         let currentSurvey = await Survey.find(surveyId);
-        currentSurvey.owner = await currentSurvey.getOwner();
+        let owner = await currentSurvey.getOwner();
+        currentSurvey.ownerId = owner.name;
         currentSurvey.voteNumber = await currentSurvey.getVoteNumber();
 
-        // get all questions in raw
+        // get all questions in raw data
         let questions = [];
         let questionsRaw = await currentSurvey.getQuestions();
 
@@ -241,10 +240,7 @@ class SurveyController extends Controller {
             questions.push(question);
         }
 
-        // console.log(questions);
-
-        res.render('survey/survey_result', {survey: currentSurvey, questions: questions});
-
+        res.json({survey: currentSurvey, questions: questions});
     }
 
     static deleteSurvey(req, res) {
