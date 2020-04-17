@@ -12,7 +12,9 @@ class QuestionController extends Controller {
             return;
         }
         
-        let status = 1;
+        let status = {
+            code: 1
+        };
         let questionId = req.params.id;
         let currentQuestion = await Question.find(questionId);
         let currentSurvey = await Survey.find(currentQuestion.surveyId);
@@ -25,10 +27,10 @@ class QuestionController extends Controller {
             await Answer.deleteWhere(`questionId = '${questionId}'`);
         } catch (e){
             console.log(e.message);
-            status = 0;
+            status.code = 0;
         }
 
-        res.send(status);
+        res.json(status);
     }
 }
 

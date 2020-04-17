@@ -51,7 +51,7 @@ class SurveyComponent {
     <div class="survey-answer-sheet">
         <div class="survey-info">
             <div class="survey-options float-right">
-                <a href="#" class="text-dark"><i class="fa fa-pie-chart" aria-hidden="true"></i>Result</a>
+                <a href="#" class="text-dark btn-show-result"><i class="fa fa-pie-chart" aria-hidden="true"></i>Result</a>
             </div>
 
             <h3 class="survey-title">This is survey title</h3>
@@ -209,6 +209,11 @@ class SurveyComponent {
         if(!surveyId) return;
 
         $("#main-content").html(this.surveyAnswerSheet);
+
+        $(".btn-show-result").click(function(){
+            SurveyComponent.showSurveyResult(surveyId);
+        });
+
         let data = await $.get('/survey/answer/' + surveyId);
         
         let survey = data.survey;

@@ -1,5 +1,6 @@
 const Model = require('./Model');
 
+
 class User extends Model {
     static table = "users";
 
@@ -9,15 +10,7 @@ class User extends Model {
     password;
     authorization;
     dateModified;
-
-
-    async getSurveys(){
-        
-    }
-
-    async getReports() {
-
-    }
+    
 }
 
 module.exports = User;

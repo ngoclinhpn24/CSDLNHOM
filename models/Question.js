@@ -7,6 +7,7 @@ class Question extends Model{
     static table = 'questions';
     id;
     content;
+    surveyId;
     dateModified;
 
     async getAllAnswers(){
