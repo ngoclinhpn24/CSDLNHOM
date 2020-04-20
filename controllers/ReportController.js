@@ -3,8 +3,19 @@ const Controller = require('./Controller');
 const Report = require('../models/Report');
 
 class ReportController extends Controller {
-    static viewUserReports(req, res) {
+    static async viewUserReports(req, res) {
+        let currentUser = req.currentUser;
+        if(currentUser.authorization != 0) return;
 
+        let reports = await Report.selectWhere('1 ORDER BY dateModified DESC');
+        for(let report of reports){
+            let owner = await report.getOwner();
+            report.ownerId = owner.name;
+            let survey = await report.getSurvey();
+            report.surveyTitle = survey.title;
+        }
+
+        res.json(reports);
     }
 
     static async saveReport(req, res) {

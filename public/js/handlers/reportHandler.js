@@ -5,7 +5,7 @@ class ReportHandler{
             'surveyId': 'required',
             'content': 'required'
         };
-
+        $("#report-success").html('');
         let messages = {
             'content.required': 'Input your report message.'
         };
@@ -13,7 +13,10 @@ class ReportHandler{
         if(validator.isPassed()){
             let result = await $.post('/report', validator.data);
 
-            console.log(result);
+            if(result.code == 1){
+                $("#report-success").html(result.message);
+            }
+            
         } else {
             validator.showErrors();
         }

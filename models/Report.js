@@ -1,5 +1,8 @@
 const Model = require('./Model');
 
+const User = require('./User');
+const Survey = require('./Survey');
+
 class Report extends Model{
     static table = 'reports';
 
@@ -10,7 +13,13 @@ class Report extends Model{
     dateModified;
 
     async getOwner(){
-        
+        let owner = await User.find(this.ownerId);
+        return owner;
+    }
+
+    async getSurvey(){
+        let survey = await Survey.find(this.surveyId);
+        return survey;
     }
 }
 

@@ -21,9 +21,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="SurveyComponent.showSurveys();return false;"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-trophy" aria-hidden="true"></i> Top Surveys</a>
-            </li>
+            <% if (currentUser.authorization == 0) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="ReportComponent.showReports(); return false;"><i class="fa fa-file" aria-hidden="true"></i> User's Report</a>
+                </li>
+            <% } %>
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="SurveyComponent.showOwnSurveys();return false;"><i class="fa fa-archive" aria-hidden="true"></i> My Surveys</a>
             </li>

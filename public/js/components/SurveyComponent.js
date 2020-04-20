@@ -100,10 +100,12 @@ class SurveyComponent {
                                 <input type="hidden" name="surveyId" value="">
                                 <textarea name="content" rows="10" class="form-control" placeholder="Enter your message"></textarea>
                                 <small class="text-danger content-error"></small>
+                                <small class="text-success" id="report-success"></small>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
+
                         </div>
                     </div>
                 </form>
@@ -355,4 +357,15 @@ class SurveyComponent {
         });
     }
 
+
+    static async deleteSurvey(surveyId){
+        if(!surveyId) return;
+
+        let result = await $.ajax({
+            url: 'survey/delete/' + surveyId,
+            type: 'DELETE'
+        });
+
+        console.log(result);
+    }
 }

@@ -37,10 +37,6 @@ class Survey extends Model{
         return result;
     }
 
-    async getReports(){
-
-    }
-
 }
 
 module.exports = Survey;
