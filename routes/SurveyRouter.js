@@ -13,6 +13,8 @@ router.post('/answer/:id?', SurveyController.submitAnswers);
 
 router.get('/result/:id', SurveyController.showResult);
 
+router.post('/search', SurveyController.searchSurveys);
+
 router.delete('/delete/:id', SurveyController.deleteSurvey);
 
 module.exports = router;

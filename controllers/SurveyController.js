@@ -3,6 +3,7 @@ const Controller = require('./Controller');
 const Survey = require('../models/Survey');
 const Question = require('../models/Question');
 const Answer = require('../models/Answer');
+const Report = require('../models/Report');
 
 class SurveyController extends Controller {
     static async viewSurveys(req, res) {
@@ -243,8 +244,56 @@ class SurveyController extends Controller {
         res.json({survey: currentSurvey, questions: questions});
     }
 
-    static deleteSurvey(req, res) {
+    static async searchSurveys(req, res){
+        let data = req.body;
+        console.log(data);
+        let keyword = data.keyword;
+        let foundSurveys = [];
+        if(keyword.includes('#')){
+            keyword = keyword.replace('#', '');
+            foundSurveys = await Survey.selectWhere(`hashTag LIKE '%${keyword}%'`);
+        } else {
+            foundSurveys = await Survey.selectWhere(`title LIKE '%${keyword}%'`);
+        }
 
+        
+        for(let survey of foundSurveys){
+            let owner = await survey.getOwner();
+            survey.ownerId = owner.name;
+            survey.voteNumber = await survey.getVoteNumber();
+        }
+
+        res.json(foundSurveys);
+    }
+
+    static async deleteSurvey(req, res) {
+        let currentUser = req.currentUser;
+        if(!currentUser) {
+            res.send('error');
+            return;
+        }
+
+        let surveyId = req.params.id;
+        let survey = await Survey.find(surveyId);
+
+        if(survey.ownerId == currentUser.id || currentUser.authorization == 0){
+
+            // delete answer
+
+            await Answer.deleteWhere(`questionId IN (SELECT id FROM questions WHERE surveyId = '${surveyId}')`);
+
+            //  delete question
+            await Question.deleteWhere(`surveyId = '${surveyId}'`);
+            // delete report
+            await Report.deleteWhere(`surveyId = '${surveyId}'`);
+            // delete survey
+            await survey.delete();
+        }
+
+        res.json({
+            code: 1,
+            message: ''
+        });
     }
 
 

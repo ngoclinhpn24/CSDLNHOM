@@ -1,9 +1,20 @@
 const Controller = require('./Controller');
 
 class HomeController extends Controller{
-    static index(req, res){
+    static async index(req, res){
         let currentUser = req.currentUser;
-        res.render('app', {currentUser: currentUser});
+
+        let users = await require('../models/User').selectWhere('all');
+        let usersNumber = users.length;
+
+        let surveys = await require('../models/Survey').selectWhere('all');
+        let surveysNumber = surveys.length;
+
+        res.render('app', {
+            currentUser: currentUser, 
+            usersNumber: usersNumber,
+            surveysNumber: surveysNumber
+        });
     }
 
     static about(req, res){

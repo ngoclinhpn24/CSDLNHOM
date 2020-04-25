@@ -267,10 +267,10 @@ class SurveyComponent {
         });
     }
 
-    static async showSurveyResult(surveyId){
+    static async showSurveyResult(surveyId, viewArea = '#main-content'){
         if(!surveyId) return;
 
-        $("#main-content").html(this.surveyResult);
+        $(viewArea).html(this.surveyResult);
         let data = await $.get('/survey/result/' + surveyId);
         
         let survey = data.survey;
@@ -357,15 +357,55 @@ class SurveyComponent {
         });
     }
 
+    static async searchSurveys(event){
+        event.preventDefault();
+        let keyword = $("#form-search-surveys").find("#keyword").val().trim();
+        if(keyword == ''){
+            alert('Input your keyword to search');
+            return;
+        }
+
+        let surveys = await $.post('/survey/search', {keyword: keyword});
+        $('#main-content').html(this.surveyIndex);
+        $('#main-content').prepend(`<h3>Search for <i>${keyword}</i>: ${surveys.length} results</h3>`);
+        
+        for (let survey of surveys) {
+            $('.surveys-container').append(`
+                <div class="survey-container">
+                    <div class="survey-options text-right">
+                        <a href="#" class="text-dark" onclick="SurveyComponent.showSurveyResult(${survey.id}); return false;"><i class="fa fa-pie-chart"></i> Result</a>
+                    </div>
+            
+                    <div class="survey-title text-primary">
+                        <h4><a href="#" onclick="SurveyComponent.showSurveyAnswerSheet(${survey.id}); return false;"> ${survey.title} </a></h4>
+                    </div>
+                    <div class="survey-hash-tag text-success"><i class="fa fa-slack"></i> ${survey.hashTag}</div>
+                    <div class="survey-vote-info text-danger"><i class="fa fa-star"></i> ${survey.voteNumber} votes</div>
+                    <div class="survey-author text-secondary"><i class="fa fa-address-book"></i> ${survey.ownerId} </div>
+                    <div class="survey-date-modified text-secondary">
+                        <i class="fa fa-calendar"></i> ${new Date(survey.dateModified).toLocaleString()}
+                    </div>
+                </div>`);
+        }        
+
+    }
 
     static async deleteSurvey(surveyId){
         if(!surveyId) return;
+
+        let myConfirm = confirm('Are you sure to delete this survey?');
+
+        if(!myConfirm) return;
 
         let result = await $.ajax({
             url: 'survey/delete/' + surveyId,
             type: 'DELETE'
         });
 
-        console.log(result);
+        if(result.code == 1){
+            ReportComponent.showReports();
+        }
+
+        
     }
 }
