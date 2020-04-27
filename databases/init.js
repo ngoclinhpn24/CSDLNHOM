@@ -1,11 +1,18 @@
 const mysql = require('mysql2');
 
 // Initialization
+// let db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'team_dui_admin',
+//     password: 'Berserk 2018',
+//     database: 'team_dui' 
+// });
 let db = mysql.createConnection({
-    host: 'localhost',
+    host: 'db4free.net',
     user: 'team_dui_admin',
-    password: 'Berserk 2018',
-    database: 'team_dui' 
+    password: '25112000',
+    database: 'team_dui',
+    port: '3306'
 });
 
 // Connect to database
